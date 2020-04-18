@@ -13,14 +13,14 @@ alpine31_310="mcr.microsoft.com/dotnet/core/runtime:3.1-alpine3.10"
 
 for image in $debian21 $debian31 $ubuntu21 $ubuntu31
 do
-	echo $image
+	echo ******Image: $image
 	docker pull $image
 	docker run --rm -it -v $(pwd):/scripts -w /scripts $image ./debian-search.sh $1
 done
 
 for image in $alpine21_310 $alpine21_311 $alpine31_310 $alpine31_311
 do
-	echo $image
+	echo ******Image: $image
 	docker pull $image
 	docker run --rm -it -v $(pwd):/scripts -w /scripts $image ./alpine-search.sh $1
 done
